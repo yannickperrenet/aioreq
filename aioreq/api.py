@@ -6,6 +6,7 @@ TCP connections, no third-party library is used.
 """
 
 import asyncio
+from typing import Optional
 
 
 __all__ = ("get_request", "get_requests")
@@ -75,7 +76,7 @@ async def get_request(
 
 async def get_requests(
     urls: list[tuple[str, int]],
-    loop: asyncio.AbstractEventLoop,
+    loop: Optional[asyncio.AbstractEventLoop] = None,
 ) -> tuple[bytearray]:
     """Make a GET request for every url in urls asynchronously.
 
@@ -84,9 +85,15 @@ async def get_requests(
 
             [("google.com", 80"), ("example.org", 80)]
 
-        loop: Reference to the event loop.
+        loop: Reference to the event loop. If `None` is given, then
+            `asyncio.get_running_loop()` is used to obtain the
+            reference.
 
     """
+    # Get a reference to the event loop as aioreq uses low-level APIs.
+    if loop is None:
+        loop = asyncio.get_running_loop()
+
     aws = [
         get_request(host, port, loop)
         for host, port in urls

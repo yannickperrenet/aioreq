@@ -17,8 +17,7 @@ import aioreq
 
 async def main():
     urls = [("example.org", 80), ...]
-    loop = asyncio.get_running_loop()
-    return await aioreq.get_requests(urls, loop)
+    return await aioreq.get_requests(urls)
 
 asyncio.run(main())
 ```

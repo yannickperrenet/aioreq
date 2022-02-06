@@ -38,11 +38,8 @@ def print_payloads(payloads: tuple[bytearray]) -> None:
 async def main() -> None:
     # Create some URLs to GET from.
     urls = [(HOST, PORT) for _ in range(NUM_REQUESTS)]
+    await aioreq.get_requests(urls)
 
-    # Get a reference to the event loop as aioreq uses low-level APIs.
-    loop = asyncio.get_running_loop()
-
-    await aioreq.get_requests(urls, loop)
     print("All GET request responses received.")
 
 
