@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "aioreq"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+authors = ["Yannick Perrenet <example@gmail.com>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.9.0"
+
+[tool.poetry.dev-dependencies]
+
+
+[tool.black]
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.mypy_cache
+  | venv
+  | build
+  | node_modules
+)/
+'''
+
+# Be compliant with PEP-517
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
