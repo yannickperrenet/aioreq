@@ -12,12 +12,12 @@ My goal for this project was to:
 Check out [examples/client.py](examples/client.py) on how to use this package. It is as simple as:
 
 ```python
+import asyncio
 import aioreq
 
 async def main():
     urls = [("example.org", 80), ...]
     loop = asyncio.get_running_loop()
-
     return await aioreq.get_requests(urls, loop)
 
 asyncio.run(main())
