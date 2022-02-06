@@ -2,7 +2,8 @@
 
 # aioreq
 
-Minimal performant package to asynchronously make GET requests.
+Minimal performant package to asynchronously make GET requests without any dependencies other than
+`asyncio`.
 
 My goal for this project was to:
 * Learn about asynchronous code in a practical manner.
