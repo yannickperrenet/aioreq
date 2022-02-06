@@ -8,6 +8,20 @@ My goal for this project was to:
 * Learn about asynchronous code in a practical manner.
 * Build a small package that allows you to send multiple requests asynchronously.
 
+## Example
+Check out [examples/client.py](examples/client.py) on how to use this package. It is as simple as:
+
+```python
+import aioreq
+
+async def main():
+    urls = [("example.org", 80), ...]
+    loop = asyncio.get_running_loop()
+
+    return await aioreq.get_requests(urls, loop)
+
+asyncio.run(main())
+```
 
 ## Practical use cases of this package
 What you **can** do:
