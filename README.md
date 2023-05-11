@@ -2,12 +2,14 @@
 
 # aioreq
 
-Minimal performant package to asynchronously make GET requests without any dependencies other than
-`asyncio`.
+Minimal performant package to asynchronously make GET requests **without any dependencies** other than
+`asyncio` (from the standard library).
 
 My goal for this project was to:
 * Learn about asynchronous code in a practical manner.
-* Build a small package that allows you to send multiple requests asynchronously.
+* Build a small package that allows you to send multiple requests asynchronously using low-level
+  primitives, i.e. not using any third-party package such as
+  [aiohttp](https://github.com/aio-libs/aiohttp).
 
 ## Example
 Check out [examples/client.py](examples/client.py) on how to use this package. It is as simple as:
